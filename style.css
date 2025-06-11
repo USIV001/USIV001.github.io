@@ -1,0 +1,720 @@
+body { 
+  background-color: rgb(105, 115, 83);
+  color: #fff6cb;
+  font-size: 19px;
+  line-height: 1.35;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+div.centered-img {
+  display: block;
+  margin: 0 auto;
+  max-width: 90vw;
+  height: auto;
+}
+
+#cave-drawing {
+  display: block;
+  width: 100vw;          /* Full viewport width */
+  height: auto;          /* Keep full image visible */
+  max-width: 100vw;      /* No horizontal overflow */
+  margin: 0 auto;
+  border-radius: 0;
+  box-shadow: none;
+  object-fit: contain;   /* This preserves aspect ratio, shows full image */
+  background: #ac9362;   /* fallback color (optional) */
+}
+
+
+video {
+  width: 100%;
+  display: block;
+}
+
+/* Main centered content area */
+div.main-content {
+  width: 100vw;
+  max-width: 1600px;           /* go as wide as a big monitor */
+  margin: 0 auto;
+  padding: 3vw 8vw;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* Center all content and allow it to grow wide */
+div.main-content > p,
+div.main-content > div,
+div.main-content > div > p {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 100%;
+  max-width: 90ch;         /* long lines, tweak as you wish */
+  box-sizing: border-box;
+  font-size: 1.35rem;
+  line-height: 1.5;
+}
+
+/* Narration, lighter and smaller */
+div.narration {
+  font-size: 1.1rem !important;
+  color: #2d0202;
+  font-weight: 300;
+  text-align: center;
+  max-width: 700px;
+  margin: 2em auto;
+  opacity: 0.85;
+  font-style: italic;
+}
+
+/* Zig-zag grid for alternate (oat/ool) section */
+div.alternate {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2em 2em;
+  margin: 3em 0;
+  text-align: left;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+div.alternate > p {
+  font-size: 1.15rem;
+  font-weight: 400;
+  margin: 0;
+  text-align: left;
+}
+div.alternate > p:nth-child(odd) { grid-column: 1; }
+div.alternate > p:nth-child(even) { grid-column: 2; }
+@media (max-width: 900px) {
+  div.alternate {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  div.alternate > p {
+    text-align: center;
+  }
+}
+
+/* Dramatic pull quote style */
+div.pull-quote {
+  width: 100vw;
+  max-width: none;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  background: #f2e7c4;
+  padding: 3.2em 0;
+  box-sizing: border-box;
+  border-radius: 0;          /* No rounded corners for edge-to-edge */
+  /* Remove border, shadow, etc. as you wish */
+  text-align: center;
+  font-style: italic;
+  font-size: 2.7rem;
+  color: #0e100d;
+  z-index: 2;
+  line-height: 2.9rem;
+  /* Optionally, add a subtle box-shadow for lift:
+  box-shadow: 0 4px 28px 0 #1c1b191a;
+  */
+}
+
+div.pull-quote > span,
+div.pull-quote em,
+div.pull-quote strong {
+  display: inline-block;
+  max-width: 1000px;
+  width: 90vw;
+  margin: 0 auto;
+  text-align: center;
+  font-style: inherit;
+}
+
+
+/* Hero story/centered special blocks */
+div.centered,
+div.hero-story {
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+/* Titles, banners, subtitles */
+div.title {
+  font-size: 150px;
+  line-height: 150px;
+  font-weight: 600;
+  text-align: left;
+  margin-left: 40px;
+  position: absolute;
+  color: #fff6cb;
+  min-height: 700px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+div.subtitle{
+  font-size: 50px;
+  line-height: 50px;
+  font-weight: 400;
+  text-align: center;
+}
+div.bodytext{
+  font-size: 25px;
+  line-height: 27px;
+  max-width: 700px;
+  margin: 40px auto 0 auto;
+  text-align: center;
+}
+div.cream{
+  color: #fff6cb;
+}
+div.bgsage{
+  background-color: rgb(73, 110, 96);
+}
+div.eb-garamond {
+  font-family: 'EB Garamond', serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+div.cormorant-garamond {
+  font-family: 'cormorant-garamond', serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+div.banner {
+  position: relative;
+  height: 800px;
+  background-image: url('straw bg1.png');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 0 40px 40px 40px;
+}
+div.banner .subtitle {
+  align-self: center;
+  text-align: center;
+  width: 100%;
+}
+
+/* hero video */
+div.herovideo {
+  width: 300px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+div.herovideo video {
+  border-radius: 12px;
+}
+
+/* folio marks */
+div.folioleft {
+  position: fixed;
+  left: 20px;
+  top: 20px;
+}
+div.folioright {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+}
+div.page-wrapper {
+  background-color: rgb(105, 115, 83);
+  transition: filter 5s ease;
+}
+.thermal-toggle {
+  text-decoration: underline;
+}
+#therm-toggle:checked ~ * {
+  filter:
+    contrast(2)
+    brightness(0.8)
+    sepia(1)
+    hue-rotate(300deg)
+    saturate(5);
+}
+
+/* Splash screen for audio */
+.splash-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #4c5942;
+  color: #fff6cb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  transition: opacity 0.5s;
+}
+.splash-message {
+  font-family: 'EB Garamond', serif;
+  font-size: 4rem;
+  text-align: center;
+  line-height: 1.2;
+  text-shadow: 0 0 12px rgba(0,0,0,0.5);
+  padding: 0 2rem;
+  cursor: pointer;
+  user-select: none;
+}
+@media (max-width: 600px) {
+  .splash-message {
+    font-size: 2.2rem;
+    padding: 0 0.5rem;
+  }
+}
+#enter-site:checked + .splash-overlay {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s;
+}
+#enter-site:not(:checked) ~ .page-wrapper {
+  filter: blur(8px);
+  pointer-events: none;
+  user-select: none;
+  transition: filter 0.15s;
+}
+#enter-site:checked ~ .page-wrapper {
+  filter: none;
+  pointer-events: auto;
+  user-select: auto;
+  transition: filter 0.15s;
+}
+
+
+
+
+/* effect blackout */
+
+#blackout-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  color:#fff6cb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s;
+}
+
+#blackout-overlay.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+div.glow-quote {
+  font-family: 'EB Garamond', serif;
+  font-size: 2.8rem;
+  max-width: 900px;
+  text-align: center;
+  line-height: 1.22;
+  color:#fff6cb;
+  text-shadow:
+    0 0 22px #fff6cb,
+    0 0 32px #ffe199,
+    0 0 72px #e3b14d;
+  padding: 1em 2vw;
+  border-radius: 20px;
+  background: rgba(0,0,0,0.4);
+  box-shadow:none;
+}
+
+@media (max-width: 800px) {
+  div.glow-quote {
+    font-size: 1.3rem;
+    padding: 0.5em 1vw;
+  }
+}
+
+#blackout-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  color: #fff6cb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s;
+}
+#blackout-overlay.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+.glow-quote {
+  font-family: 'EB Garamond', serif;
+  font-size: 2.8rem;
+  max-width: 900px;
+  text-align: center;
+  line-height: 1.22;
+  color: #fff6cb;
+  text-shadow:
+    0 0 22px#fff6cb,
+    0 0 32px #ffe199,
+    0 0 72px #e3b14d;
+  padding: 1em 2vw;
+  border-radius: 20px;
+  background: rgba(0,0,0,0.4);
+  box-shadow: 0 0 32px #000b, 0 0 12px #fff8;
+}
+@media (max-width: 800px) {
+  .glow-quote {
+    font-size: 1.3rem;
+    padding: 0.5em 1vw;
+  }
+}
+
+.welcome {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #4c5942;
+  color: #fff6cb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  transition: opacity 0.4s;
+  opacity: 1;
+  pointer-events: all;
+}
+.welcome.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s;
+}
+.largetext {
+  font-family: 'EB Garamond', serif;
+  font-size: 4rem;
+  text-align: center;
+  line-height: 1.2;
+  text-shadow: 0 0 12px rgba(0,0,0,0.5);
+  padding: 0 2rem;
+  cursor: pointer;
+  user-select: none;
+}
+.herovideo {
+  width: 90vw;
+  max-width: 700px;
+  margin: 80px auto 0 auto;
+  display: block;
+}
+.herovideo video {
+  width: 100%;
+  display: block;
+  border-radius: 1rem;
+  box-shadow: 0 0 16px #0009;
+}
+
+
+/* Slope fall effect, hidden by default */
+.slope {
+  display: inline-block;
+  transition: transform 0.7s cubic-bezier(.34,1.56,.64,1);
+  will-change: transform, color;
+}
+
+/* When triggered, slope falls and fades */
+.slope.fall {
+  transform: translateY(70px) rotateZ(-25deg) scale(1.1);
+  color: #ad3b19;
+  opacity: 0.85;
+  text-shadow: 0 8px 22px #ad3b19aa, 0 2px 18px #fff9;
+}
+
+/* swirl line */
+
+.seed-swirl {
+  display: inline-block;
+  transition: transform 0.8s cubic-bezier(.42,2,.58,.92);
+  will-change: transform;
+}
+
+/* Swirl animation: follows a curly path and then comes back to place */
+@keyframes swirl-across {
+  0%   { transform: translate(0,0) rotate(0); }
+  8%   { transform: translate(-20px, -16px) rotate(-6deg);}
+  18%  { transform: translate(60px, -45px) rotate(10deg);}
+  32%  { transform: translate(180px, 40px) rotate(20deg);}
+  50%  { transform: translate(100px, 120px) rotate(-30deg);}
+  68%  { transform: translate(-120px, 80px) rotate(15deg);}
+  85%  { transform: translate(-80px, -50px) rotate(-12deg);}
+  100% { transform: translate(0,0) rotate(0);}
+}
+
+/* When active, run the swirl */
+.seed-swirl.swirling {
+  animation: swirl-across 14s linear;
+}
+.swirl-words span {
+  display: inline-block;
+  transition: transform 0.35s cubic-bezier(.42,2,.58,.92), color 0.25s;
+  font-family: inherit;
+  font-size: 1.04em;
+  color: inherit;
+}
+.swirl-words span.pulse {
+  transform: scale(1.36);
+  color: #fff6cb;
+  text-shadow: 0 2px 16px #493, 0 0 2px#fff6cb;
+  z-index: 3;
+}
+
+#jolt-paragraph {
+  transition: color 0.12s;
+}
+
+/* Make text black for the effect */
+#jolt-paragraph.jolt {
+  color: #000;
+}
+
+/* Each shake is a single jolt pulse */
+@keyframes pulse-shake {
+  0%   { transform: translate(0, 0); }
+  10%  { transform: translate(-6px, 0) rotate(-2deg);}
+  20%  { transform: translate(7px, -2px) rotate(2deg);}
+  30%  { transform: translate(-9px, 3px) rotate(-2deg);}
+  40%  { transform: translate(6px, 1px) rotate(2deg);}
+  50%  { transform: translate(-3px, -3px) rotate(-1deg);}
+  100% { transform: translate(0, 0);}
+}
+#jolt-paragraph.shake {
+  animation: pulse-shake 0.33s cubic-bezier(.77,2,.22,.81);
+}
+
+#red-flash {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: #ff1919;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 99999;
+  transition: opacity 0.14s;
+}
+#red-flash.active {
+  opacity: 0.9;
+  transition: opacity 0.12s;
+}
+/* Blackout overlay styles */
+#ending-blackout {
+  display: none;
+  position: fixed;
+  z-index: 999999;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background: #000;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  opacity: 0;
+  transition: opacity 0.8s;
+  pointer-events: none;
+}
+
+#ending-blackout.active {
+  display: flex;
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Glowing quote style for overlay */
+#ending-glow-quote {
+  color: #fff6cb;
+  text-align: center;
+  font-size: 2.3rem;
+  font-family: 'EB Garamond', serif;
+  text-shadow: 0 0 22px#fff6cb, 0 0 42px #fff6cb, 0 0 112px #fff6cb;
+  margin-bottom: 80px;
+  max-width: 85vw;
+  opacity: 0;
+  transform: scale(0.87);
+  animation: none;
+  transition: opacity 1s, transform 1s;
+}
+#ending-blackout.active #ending-glow-quote {
+  opacity: 1;
+  transform: scale(1);
+  animation: glowpop 1.1s cubic-bezier(.55,1.65,.68,1) 0.2s 1 both;
+}
+@keyframes glowpop {
+  from { opacity: 0; transform: scale(0.6);}
+  to { opacity: 1; transform: scale(1);}
+}
+
+#starfield {
+  position: absolute;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: 2;
+  display: none;
+}
+#ending-blackout.active #starfield { display: block; }
+
+.star {
+  position: absolute;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #fff6cb;
+  opacity: 0.8;
+  box-shadow: 0 0 18px 6px #fff7d688;
+  animation: star-flicker 1.3s infinite alternate;
+}
+
+@keyframes star-flicker {
+  from { opacity: 0.5; }
+  50%  { opacity: 1; }
+  to   { opacity: 0.1; }
+}
+html.bw-effect {
+  filter: grayscale(1) contrast(1.12) brightness(1.08) !important;
+  transition: filter 0.22s;
+}
+
+/* Lightning flashes overlay stays the same */
+#lightning-overlay {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 999998;
+  background: rgba(255,255,255,0.0);
+  opacity: 0;
+  transition: opacity 0.09s;
+}
+
+#lightning-overlay.flash {
+  opacity: 1;
+  background: #fff6cb;
+  transition: opacity 0.04s;
+}
+/* Sway animation */
+#sway-paragraph.sway {
+  display: block;
+  animation: sway-side 2.9s ease-in-out infinite;
+}
+@keyframes sway-side {
+  0%   { transform: translateX(0); }
+  12%  { transform: translateX(-12px); }
+  25%  { transform: translateX(16px); }
+  38%  { transform: translateX(-14px);}
+  50%  { transform: translateX(10px);}
+  62%  { transform: translateX(-8px);}
+  75%  { transform: translateX(8px);}
+  87%  { transform: translateX(-5px);}
+  100% { transform: translateX(0); }
+}
+
+/* Clouds container */
+.clouds-container {
+  position: relative;
+  width: 100vw;
+  height: 120px;
+  margin-top: 20px;
+  margin-bottom: -40px; /* overlap w/ paragraph if needed */
+  z-index: 3;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.cloud {
+  position: absolute;
+  bottom: 0;
+  width: 120px;
+  height: 55px;
+  background: #fff6cb;
+  border-radius: 60px 60px 60px 60px / 36px 38px 40px 34px;
+  opacity: 0.58;
+  box-shadow: 0 8px 30px 2px #ffffffb8;
+  animation: cloud-float 45s linear infinite;
+  z-index: 3;
+}
+.cloud.small { width: 68px; height: 28px; opacity: 0.34;}
+.cloud.medium { width: 102px; height: 40px; opacity: 0.46;}
+.cloud.big { width: 145px; height: 67px; opacity: 0.6;}
+
+@keyframes cloud-float {
+  from { left: -160px; }
+  to   { left: 100vw; }
+}
+#woman-silhouette {
+  display: block;
+  margin: 40px auto 40px auto;
+  width: 60vw;           /* Adjust as needed */
+  max-width: 700px;      /* Prevents it from being too huge on desktop */
+  min-width: 240px;
+  height: auto;
+  background: #f2e7c4;   /* Sage green fallback if transparent PNG */
+  border-radius: 0;
+  box-shadow: none;
+}
+
+@media (max-width: 800px) {
+  #woman-silhouette {
+    width: 95vw;
+    max-width: 98vw;
+    margin: 30px auto 30px auto;
+  }
+}
+
+.cave-woman-img {
+  display: block;
+  margin: 40px ;      /* centers image horizontally, with space above/below */
+  width: 100vw;            /* fill 80% of viewport width */
+  max-width: 600px;       /* never go bigger than this */
+  height: auto;           /* keep aspect ratio */
+  border-radius: 0;
+  box-shadow: none;
+}
+
+@media (max-width: 600px) {
+  .cave-woman-img {
+    width: 98vw;
+    max-width: 98vw;
+    margin: 24px auto;
+  }
+}
+
+#cave-drawing {
+  display: block;
+  width: 100vw;         /* Edge to edge horizontally */
+  min-width: 100vw;
+  max-width: 90vw;
+  height: 75vh;         /* 75% of viewport height (adjust as needed) */
+  object-fit: cover;    /* Crops to fill if not the right aspect */
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: #fff6c9;  /* fallback for empty area */
+}
+body, html {
+  padding: 0;
+  margin: 0;
+}
+
+
+
